@@ -38,6 +38,7 @@ void DataStreamCAN::connectCanInterface()
     for (const ConnectDialog::ConfigurationItem& item : p.configurations)
       can_interface_->setConfigurationParameter(item.first, item.second);
   }
+  can_interface_->setConfigurationParameter(QCanBusDevice::CanFdKey, true);
 
   if (!can_interface_->connectDevice())
   {
